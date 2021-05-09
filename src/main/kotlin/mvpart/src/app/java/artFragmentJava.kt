@@ -1,5 +1,7 @@
 package mvpart.src.app.java
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artFragmentJava(
         packageName: String,
         pageName: String,
@@ -33,6 +35,12 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName};" else ""}
 
 import ${packageName}.R;
 
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
 public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${presenterName}>" else ""} implements IView {
 
     public static ${pageName}Fragment newInstance() {

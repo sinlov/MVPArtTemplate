@@ -54,11 +54,11 @@ fun RecipeExecutor.mvpartRecipe(
     }
 
     if (needActivity && generateActivityLayout) {
-        save(ConstraintLayoutXml(), resOut.resolve("layout/${activityLayoutName}.xml"))
+        save(LinearLayoutXml(), resOut.resolve("layout/${activityLayoutName}.xml"))
     }
 
     if (needFragment && generateFragmentLayout) {
-        save(ConstraintLayoutXml(), resOut.resolve("layout/${fragmentLayoutName}.xml"))
+        save(LinearLayoutXml(), resOut.resolve("layout/${fragmentLayoutName}.xml"))
     }
 
 

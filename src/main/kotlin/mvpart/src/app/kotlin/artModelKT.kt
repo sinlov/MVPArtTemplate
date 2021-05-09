@@ -23,7 +23,8 @@ import me.jessyan.art.mvp.IRepositoryManager
  * 无需每个页面都创建一个独立的 Repository
  * 通过 {@link me.jessyan.art.mvp.IRepositoryManager#createRepository(java.lang.Class)} 获得的 Repository 实例, 为单例对象
  * <p>
- * Created by MVPArtTemplate on ${DateUtil.nowDateStr()}
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * <a href="https://github.com/JessYanCoding/MVPArt">Star me</a>

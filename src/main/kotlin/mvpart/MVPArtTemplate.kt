@@ -1,6 +1,7 @@
 package mvpart
 
 import com.android.tools.idea.wizard.template.*
+import com.intellij.ui.components.RadioButton
 import java.io.File
 
 /**
@@ -12,7 +13,7 @@ val MVPArtTemplate
         name = "MVPArtTemplate"
         minApi = 9
         minBuildApi = 15
-        description = "一键创建 MVPArt 单个页面所需要的全部组件"
+        description = "Create all the components needed for a single page of MVPart"
 
         category = Category.Other
         formFactor = FormFactor.Mobile
@@ -25,7 +26,7 @@ val MVPArtTemplate
 
         val pageName = stringParameter {
             name = "Page Name"
-            default = "Main"
+            default = "Example"
             help = "请填写页面名,如填写 Main,会自动生成 MainActivity, MainPresenter 等文件"
             constraints = listOf(Constraint.NONEMPTY, Constraint.UNIQUE)
         }
@@ -139,7 +140,7 @@ val MVPArtTemplate
          */
         val presenterName = stringParameter {
             name = "Presenter Name"
-            default = "Main"
+            default = "Example"
             constraints = listOf(Constraint.NONEMPTY)
             visible = { needPresenter.value }
             help = "请填写 Presenter 名(若此栏为空,则 Activity/Fragment 不会引用任何 Presenter)"
@@ -169,7 +170,7 @@ val MVPArtTemplate
 
         val modelName = stringParameter {
             name = "Model Name"
-            default = "Main"
+            default = "Example"
             constraints = listOf(Constraint.NONEMPTY)
             visible = { needPresenter.value }
             help = "请填写 Model 名(若此栏为空,则 Presenter 不会引用任何 Model)"
@@ -187,6 +188,7 @@ val MVPArtTemplate
 
         widgets(
             TextFieldWidget(pageName),
+            LanguageWidget(),
             PackageNameWidget(packageName),
 
             CheckBoxWidget(needActivity),

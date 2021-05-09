@@ -1,5 +1,7 @@
 package mvpart.src.app.java
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artPresenterJava(
         packageName: String,
         pageName: String,
@@ -17,6 +19,12 @@ import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 ${if (needModel) "import ${modelPackageName}.${modelName};" else ""}
 
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
 public class ${presenterName} extends BasePresenter${if (needModel) "<${modelName}>" else ""} {
 
     private RxErrorHandler mErrorHandler;

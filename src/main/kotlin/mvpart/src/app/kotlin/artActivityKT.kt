@@ -1,5 +1,7 @@
 package mvpart.src.app.kotlin
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artActivityKT(
         packageName: String,
         pageName: String,
@@ -13,6 +15,7 @@ package ${activityPackageName}
 
 import android.os.Bundle
 
+import me.jessyan.art.base.BaseActivity
 import me.jessyan.art.mvp.IPresenter
 import me.jessyan.art.mvp.IView
 import me.jessyan.art.mvp.Message
@@ -20,7 +23,15 @@ import me.jessyan.art.utils.ArtUtils
 
 ${if (needPresenter) "import ${presenterPackageName}.${presenterName}" else ""}
 
-class ${pageName}Activity : BaseActivity${if (needPresenter) "<${presenterName}>" else ""}, IView {
+import ${packageName}.R
+
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
+class ${pageName}Activity : BaseActivity${if (needPresenter) "<${presenterName}>" else ""}(), IView {
 
     override fun initView(savedInstanceState:Bundle?):Int {
         //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0

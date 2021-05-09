@@ -1,5 +1,7 @@
 package mvpart.src.app.java
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artActivityJava(
     packageName: String,
     pageName: String,
@@ -27,6 +29,12 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName};" else ""}
 
 import ${packageName}.R;
 
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
 public class ${pageName}Activity extends BaseActivity${if (needPresenter) "<${presenterName}>" else ""} implements IView {
 
     @Override

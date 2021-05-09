@@ -1,5 +1,7 @@
 package mvpart.src.app.kotlin
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artFragmentKT(
         packageName: String,
         pageName: String,
@@ -29,6 +31,12 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName}" else ""}
 
 import ${packageName}.R;
 
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
 class ${pageName}Fragment : BaseFragment${if (needPresenter) "<${presenterName}>" else ""}, , IView {
 
     companion object {

@@ -1,5 +1,7 @@
 package mvpart.src.app.kotlin
 
+import com.sinlov.kotlin.utils.DateUtil
+
 fun artPresenterKT(
         packageName: String,
         pageName: String,
@@ -17,15 +19,24 @@ import me.jessyan.rxerrorhandler.core.RxErrorHandler
 
 ${if (needModel) "import ${modelPackageName}.${modelName}" else ""}
 
-class ${presenterName}(appComponent:AppComponent) :
-    BasePresenter ${if (needModel) "<${modelName}>" else ""}${if (needModel) "appComponent.repositoryManager().createRepository(${modelName}::class.java)" else ""} {
+/**
+ * ================================================
+ * Created on ${DateUtil.nowDateStr()}
+ * by <a href="https://github.com/sinlov/MVPArtTemplate">https://github.com/sinlov/MVPArtTemplate</a>
+ * ================================================
+ */
+class ${presenterName}(appComponent: AppComponent) :
+    BasePresenter ${if (needModel) "<${modelName}?>" else ""}${if (needModel) "(appComponent.repositoryManager().createRepository(${modelName}::class.java))" else ""} {
 
-    private val mErrorHandler by lazy{
-        appComponent.rxErrorHandler()
+    private var mErrorHandler: RxErrorHandler?
+
+    init {
+        mErrorHandler = appComponent.rxErrorHandler()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        mErrorHandler = null
     }
 }
 """
