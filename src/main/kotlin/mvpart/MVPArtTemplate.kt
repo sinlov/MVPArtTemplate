@@ -1,7 +1,6 @@
 package mvpart
 
 import com.android.tools.idea.wizard.template.*
-import com.intellij.ui.components.RadioButton
 import java.io.File
 
 /**
