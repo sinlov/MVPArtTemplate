@@ -158,7 +158,7 @@ fun RecipeExecutor.mvpartRecipe(
                             presenterName,
                             presenterPackageName
                     ),
-                    srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
+                    srcOut.resolve("mvp/model/${pageName}Repository.${ktOrJavaExt}")
             )
         else
             save(
@@ -171,7 +171,7 @@ fun RecipeExecutor.mvpartRecipe(
                             presenterName,
                             presenterPackageName
                     ),
-                    srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
+                    srcOut.resolve("mvp/model/${pageName}Repository.${ktOrJavaExt}")
             )
     }
 }

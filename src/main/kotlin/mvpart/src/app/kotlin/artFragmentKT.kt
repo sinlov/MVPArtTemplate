@@ -29,7 +29,7 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName}" else ""}
 
 import ${packageName}.R;
 
-class ${pageName}Fragment : BaseFragment${if (needPresenter) "<${presenterName}Presenter>" else ""}, , IView {
+class ${pageName}Fragment : BaseFragment${if (needPresenter) "<${presenterName}>" else ""}, , IView {
 
     companion object {
         fun newInstance():${pageName}Fragment {
@@ -46,7 +46,7 @@ class ${pageName}Fragment : BaseFragment${if (needPresenter) "<${presenterName}P
 
     }
 
-    override fun  obtainPresenter():${if (needPresenter) "${presenterName}Presenter" else "IPresenter"}? {
+    override fun  obtainPresenter():${if (needPresenter) presenterName else "IPresenter"}? {
         return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this))" else "null"}
     }
 

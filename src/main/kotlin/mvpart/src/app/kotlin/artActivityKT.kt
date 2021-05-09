@@ -20,7 +20,7 @@ import me.jessyan.art.utils.ArtUtils
 
 ${if (needPresenter) "import ${presenterPackageName}.${presenterName}" else ""}
 
-class ${pageName}Activity : BaseActivity${if (needPresenter) "<${presenterName}Presenter>" else ""}, IView {
+class ${pageName}Activity : BaseActivity${if (needPresenter) "<${presenterName}>" else ""}, IView {
 
     override fun initView(savedInstanceState:Bundle?):Int {
         //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
@@ -31,7 +31,7 @@ class ${pageName}Activity : BaseActivity${if (needPresenter) "<${presenterName}P
 
     }
 
-    override fun obtainPresenter():${if (needPresenter) "<${presenterName}Presenter>" else ""}? {
+    override fun obtainPresenter():${if (needPresenter) presenterName else ""}? {
         return ${if (needPresenter) "${presenterName}(ArtUtils.obtainAppComponentFromContext(this))" else "null"}
     }
 

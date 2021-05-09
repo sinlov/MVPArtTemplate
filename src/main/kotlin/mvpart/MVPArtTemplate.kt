@@ -143,7 +143,7 @@ val MVPArtTemplate
             constraints = listOf(Constraint.NONEMPTY)
             visible = { needPresenter.value }
             help = "请填写 Presenter 名(若此栏为空,则 Activity/Fragment 不会引用任何 Presenter)"
-            suggest = { "${packageName.value}Presenter" }
+            suggest = { "${pageName.value}Presenter" }
         }
 
         /**
@@ -173,7 +173,7 @@ val MVPArtTemplate
             constraints = listOf(Constraint.NONEMPTY)
             visible = { needPresenter.value }
             help = "请填写 Model 名(若此栏为空,则 Presenter 不会引用任何 Model)"
-            suggest = { "${packageName.value}Repository" }
+            suggest = { "${pageName.value}Repository" }
         }
 
         val modelPackageName = stringParameter {

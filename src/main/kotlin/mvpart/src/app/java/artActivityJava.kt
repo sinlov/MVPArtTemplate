@@ -27,7 +27,7 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName};" else ""}
 
 import ${packageName}.R;
 
-public class ${pageName}Activity extends BaseActivity${if (needPresenter) "<${presenterName}Presenter>" else ""} implements IView {
+public class ${pageName}Activity extends BaseActivity${if (needPresenter) "<${presenterName}>" else ""} implements IView {
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class ${pageName}Activity extends BaseActivity${if (needPresenter) "<${pr
 
     @Override
     @Nullable
-    public ${if (needPresenter) "<${presenterName}Presenter>" else ""}IPresenter obtainPresenter() {
+    public ${if (needPresenter) presenterName else "IPresenter"} obtainPresenter() {
         return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
     }
 

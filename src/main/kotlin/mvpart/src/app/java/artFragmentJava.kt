@@ -33,7 +33,7 @@ ${if (needPresenter) "import ${presenterPackageName}.${presenterName};" else ""}
 
 import ${packageName}.R;
 
-public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${presenterName}Presenter>" else ""} implements IView {
+public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${presenterName}>" else ""} implements IView {
 
     public static ${pageName}Fragment newInstance() {
         ${pageName}Fragment fragment = new ${pageName}Fragment();
@@ -52,7 +52,7 @@ public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${pr
 
     @Override
     @Nullable
-    public ${if (needPresenter) "${presenterName}Presenter" else "IPresenter"} obtainPresenter() {
+    public ${if (needPresenter) presenterName else "IPresenter"} obtainPresenter() {
         return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
     }
 
