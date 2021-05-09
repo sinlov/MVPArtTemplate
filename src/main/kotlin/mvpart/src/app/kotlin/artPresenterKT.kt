@@ -18,7 +18,7 @@ import me.jessyan.rxerrorhandler.core.RxErrorHandler
 ${if (needModel) "import ${modelPackageName}.${modelName}" else ""}
 
 class ${presenterName}(appComponent:AppComponent) :
-    BasePresenter ${if (needModel) "<${modelName}>" else ""}${if (needModel) "appComponent.repositoryManager().createRepository(${modelName}::class.java)"} {
+    BasePresenter ${if (needModel) "<${modelName}>" else ""}${if (needModel) "appComponent.repositoryManager().createRepository(${modelName}::class.java)" else ""} {
 
     private val mErrorHandler by lazy{
         appComponent.rxErrorHandler()
