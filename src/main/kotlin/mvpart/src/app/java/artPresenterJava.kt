@@ -1,13 +1,13 @@
 package mvpart.src.app.java
 
 fun artPresenterJava(
-    packageName: String,
-    pageName: String,
-    presenterName: String,
-    presenterPackageName: String,
-    needModel: Boolean,
-    modelName: String,
-    modelPackageName: String
+        packageName: String,
+        pageName: String,
+        presenterName: String,
+        presenterPackageName: String,
+        needModel: Boolean,
+        modelName: String,
+        modelPackageName: String
 ) = """
 package ${presenterPackageName};
 

@@ -1,8 +1,8 @@
-package mvpart.src.app.java
+package mvpart.src.app.kotlin
 
 import com.sinlov.kotlin.utils.DateUtil
 
-fun artModelJava(
+fun artModelKT(
         packageName: String,
         pageName: String,
         modelName: String,
@@ -11,10 +11,10 @@ fun artModelJava(
         presenterName: String,
         presenterPackageName: String
 ) = """
-package ${modelPackageName};
+package ${modelPackageName}
 
-import me.jessyan.art.mvp.IModel;
-import me.jessyan.art.mvp.IRepositoryManager;
+import me.jessyan.art.mvp.IModel
+import me.jessyan.art.mvp.IRepositoryManager
 
 /**
  * ================================================
@@ -31,15 +31,10 @@ import me.jessyan.art.mvp.IRepositoryManager;
  * <a href="https://github.com/JessYanCoding/MVPArmsTemplate">模版请保持更新</a>
  * ================================================
  */
-public class ${modelName} implements IModel {
-    private IRepositoryManager mManager;
+class ${modelName}(manager:IRepositoryManager) : IModel {
 
-    public ${modelName}(IRepositoryManager manager) {
-        this.mManager = manager;
-    }
-
-    @Override
-    public void onDestroy() {
+    override fun onDestroy() {
         
     }
+}
 """

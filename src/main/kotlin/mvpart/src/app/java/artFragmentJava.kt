@@ -1,13 +1,13 @@
 package mvpart.src.app.java
 
 fun artFragmentJava(
-    packageName: String,
-    pageName: String,
-    fragmentPackageName: String,
-    fragmentLayoutName: String,
-    needPresenter: Boolean,
-    presenterName: String,
-    presenterPackageName: String
+        packageName: String,
+        pageName: String,
+        fragmentPackageName: String,
+        fragmentLayoutName: String,
+        needPresenter: Boolean,
+        presenterName: String,
+        presenterPackageName: String
 ) = """
 package ${fragmentPackageName};
 
@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import me.jessyan.art.base.BaseFragment;
 import me.jessyan.art.base.delegate.IFragment;
+import me.jessyan.art.mvp.IPresenter;
 import me.jessyan.art.mvp.IView;
 import me.jessyan.art.mvp.Message;
 import me.jessyan.art.utils.ArtUtils;
@@ -51,8 +52,8 @@ public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${pr
 
     @Override
     @Nullable
-    public ${if (needPresenter) "<${presenterName}Presenter>" else ""}IPresenter obtainPresenter() {
-        return ${if (needPresenter) "new <${presenterName}>(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
+    public ${if (needPresenter) "${presenterName}Presenter" else "IPresenter"} obtainPresenter() {
+        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
     }
 
     /**

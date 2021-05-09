@@ -16,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import me.jessyan.art.base.BaseActivity;
+import me.jessyan.art.mvp.IPresenter;
 import me.jessyan.art.mvp.IView;
 import me.jessyan.art.mvp.Message;
 import me.jessyan.art.utils.ArtUtils;
@@ -41,7 +42,7 @@ public class ${pageName}Activity extends BaseActivity${if (needPresenter) "<${pr
     @Override
     @Nullable
     public ${if (needPresenter) "<${presenterName}Presenter>" else ""}IPresenter obtainPresenter() {
-        return ${if (needPresenter) "new <${presenterName}>(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
+        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
     }
 
     @Override

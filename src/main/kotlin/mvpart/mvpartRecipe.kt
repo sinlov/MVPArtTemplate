@@ -8,6 +8,10 @@ import mvpart.src.app.java.artActivityJava
 import mvpart.src.app.java.artFragmentJava
 import mvpart.src.app.java.artModelJava
 import mvpart.src.app.java.artPresenterJava
+import mvpart.src.app.kotlin.artActivityKT
+import mvpart.src.app.kotlin.artFragmentKT
+import mvpart.src.app.kotlin.artModelKT
+import mvpart.src.app.kotlin.artPresenterKT
 
 /**
  * @CreateDate:     2021/5/5
@@ -15,23 +19,23 @@ import mvpart.src.app.java.artPresenterJava
  * @Description:    菜单
  */
 fun RecipeExecutor.mvpartRecipe(
-    moduleData: ModuleTemplateData,
-    pageName: String,
-    packageName: String,
-    needActivity: Boolean,
-    activityLayoutName: String,
-    generateActivityLayout: Boolean,
-    activityPackageName: String,
-    needFragment: Boolean,
-    fragmentLayoutName: String,
-    generateFragmentLayout: Boolean,
-    fragmentPackageName: String,
-    needPresenter: Boolean,
-    presenterName: String,
-    presenterPackageName: String,
-    needModel: Boolean,
-    modelName: String,
-    modelPackageName: String
+        moduleData: ModuleTemplateData,
+        pageName: String,
+        packageName: String,
+        needActivity: Boolean,
+        activityLayoutName: String,
+        generateActivityLayout: Boolean,
+        activityPackageName: String,
+        needFragment: Boolean,
+        fragmentLayoutName: String,
+        generateFragmentLayout: Boolean,
+        fragmentPackageName: String,
+        needPresenter: Boolean,
+        presenterName: String,
+        presenterPackageName: String,
+        needModel: Boolean,
+        modelName: String,
+        modelPackageName: String
 ) {
     val (projectData, srcOut, resOut, manifestOut) = moduleData
 
@@ -44,8 +48,8 @@ fun RecipeExecutor.mvpartRecipe(
 
     if (needActivity) {
         mergeXml(
-            baseManifestTemplateXml(packageName, activityPackageName, "${pageName}Activity"),
-            manifestOut.resolve("AndroidManifest.xml")
+                baseManifestTemplateXml(packageName, activityPackageName, "${pageName}Activity"),
+                manifestOut.resolve("AndroidManifest.xml")
         )
     }
 
@@ -61,83 +65,83 @@ fun RecipeExecutor.mvpartRecipe(
     if (needActivity) {
         if (ktOrJavaExt == "java")
             save(
-                artActivityJava(
-                    packageName,
-                    pageName,
-                    activityPackageName,
-                    activityLayoutName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ), srcOut.resolve("mvp/ui/activity/${pageName}Activity.${ktOrJavaExt}")
+                    artActivityJava(
+                            packageName,
+                            pageName,
+                            activityPackageName,
+                            activityLayoutName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ), srcOut.resolve("mvp/ui/activity/${pageName}Activity.${ktOrJavaExt}")
             )
         else
             save(
-                artActivityJava(
-                    packageName,
-                    pageName,
-                    activityPackageName,
-                    activityLayoutName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ), srcOut.resolve("mvp/ui/activity/${pageName}Activity.${ktOrJavaExt}")
+                    artActivityKT(
+                            packageName,
+                            pageName,
+                            activityPackageName,
+                            activityLayoutName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ), srcOut.resolve("mvp/ui/activity/${pageName}Activity.${ktOrJavaExt}")
             )
     }
 
     if (needFragment) {
         if (ktOrJavaExt == "java")
             save(
-                artFragmentJava(
-                    packageName,
-                    pageName,
-                    fragmentPackageName,
-                    fragmentLayoutName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ), srcOut.resolve("mvp/ui/fragment/${pageName}Fragment.${ktOrJavaExt}")
+                    artFragmentJava(
+                            packageName,
+                            pageName,
+                            fragmentPackageName,
+                            fragmentLayoutName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ), srcOut.resolve("mvp/ui/fragment/${pageName}Fragment.${ktOrJavaExt}")
             )
         else
             save(
-                artFragmentJava(
-                    packageName,
-                    pageName,
-                    fragmentPackageName,
-                    fragmentLayoutName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ), srcOut.resolve("mvp/ui/fragment/${pageName}Fragment.${ktOrJavaExt}")
+                    artFragmentKT(
+                            packageName,
+                            pageName,
+                            fragmentPackageName,
+                            fragmentLayoutName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ), srcOut.resolve("mvp/ui/fragment/${pageName}Fragment.${ktOrJavaExt}")
             )
     }
 
     if (needPresenter) {
         if (ktOrJavaExt == "java")
             save(
-                artPresenterJava(
-                    packageName,
-                    pageName,
-                    presenterName,
-                    presenterPackageName,
-                    needModel,
-                    modelName,
-                    modelPackageName
-                ),
-                srcOut.resolve("mvp/presenter/${pageName}Presenter.${ktOrJavaExt}")
+                    artPresenterJava(
+                            packageName,
+                            pageName,
+                            presenterName,
+                            presenterPackageName,
+                            needModel,
+                            modelName,
+                            modelPackageName
+                    ),
+                    srcOut.resolve("mvp/presenter/${pageName}Presenter.${ktOrJavaExt}")
             )
         else
             save(
-                artPresenterJava(
-                    packageName,
-                    pageName,
-                    presenterName,
-                    presenterPackageName,
-                    needModel,
-                    modelName,
-                    modelPackageName
-                ),
-                srcOut.resolve("mvp/presenter/${pageName}Presenter.${ktOrJavaExt}")
+                    artPresenterKT(
+                            packageName,
+                            pageName,
+                            presenterName,
+                            presenterPackageName,
+                            needModel,
+                            modelName,
+                            modelPackageName
+                    ),
+                    srcOut.resolve("mvp/presenter/${pageName}Presenter.${ktOrJavaExt}")
             )
     }
 
@@ -145,29 +149,29 @@ fun RecipeExecutor.mvpartRecipe(
     if (needModel) {
         if (ktOrJavaExt == "java")
             save(
-                artModelJava(
-                    packageName,
-                    pageName,
-                    modelName,
-                    modelPackageName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ),
-                srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
+                    artModelJava(
+                            packageName,
+                            pageName,
+                            modelName,
+                            modelPackageName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ),
+                    srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
             )
         else
             save(
-                artModelJava(
-                    packageName,
-                    pageName,
-                    modelName,
-                    modelPackageName,
-                    needPresenter,
-                    presenterName,
-                    presenterPackageName
-                ),
-                srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
+                    artModelKT(
+                            packageName,
+                            pageName,
+                            modelName,
+                            modelPackageName,
+                            needPresenter,
+                            presenterName,
+                            presenterPackageName
+                    ),
+                    srcOut.resolve("mvp/model/${pageName}Model.${ktOrJavaExt}")
             )
     }
 }
