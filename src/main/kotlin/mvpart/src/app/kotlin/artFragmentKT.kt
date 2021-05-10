@@ -3,6 +3,7 @@ package mvpart.src.app.kotlin
 import com.sinlov.kotlin.utils.DateUtil
 
 fun artFragmentKT(
+        legacySupport: Boolean,
         packageName: String,
         pageName: String,
         fragmentPackageName: String,
@@ -15,7 +16,7 @@ package ${fragmentPackageName}
 
 import android.os.Bundle
 import android.app.Activity
-import android.support.v4.app.Fragment
+import ${if (legacySupport) "android.support.v4.app.Fragment" else "androidx.fragment.app.Fragment"}
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,7 @@ class ${pageName}Fragment : BaseFragment${if (needPresenter) "<${presenterName}>
     }
 
     override fun  obtainPresenter():${if (needPresenter) presenterName else "IPresenter"}? {
-        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this))" else "null"}
+        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this.getActivity()))" else "null"}
     }
 
     /**

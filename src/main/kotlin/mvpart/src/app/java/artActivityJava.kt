@@ -3,19 +3,21 @@ package mvpart.src.app.java
 import com.sinlov.kotlin.utils.DateUtil
 
 fun artActivityJava(
-    packageName: String,
-    pageName: String,
-    activityPackageName: String,
-    activityLayoutName: String,
-    needPresenter: Boolean,
-    presenterName: String,
-    presenterPackageName: String
+        legacySupport: Boolean,
+        packageName: String,
+        pageName: String,
+        activityPackageName: String,
+        activityLayoutName: String,
+        needPresenter: Boolean,
+        presenterName: String,
+        presenterPackageName: String
 ) = """
 package ${activityPackageName};
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import ${if (legacySupport) "android.support.annotation.NonNull" else "androidx.annotation.NonNull"};
+import ${if (legacySupport) "android.support.annotation.Nullable" else "androidx.annotation.Nullable"};
 
 import me.jessyan.art.base.BaseActivity;
 import me.jessyan.art.mvp.IPresenter;

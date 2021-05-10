@@ -20,6 +20,7 @@ import mvpart.src.app.kotlin.artPresenterKT
  */
 fun RecipeExecutor.mvpartRecipe(
         moduleData: ModuleTemplateData,
+        legacySupport: Boolean,
         pageName: String,
         packageName: String,
         needActivity: Boolean,
@@ -66,6 +67,7 @@ fun RecipeExecutor.mvpartRecipe(
         if (ktOrJavaExt == "java")
             save(
                     artActivityJava(
+                            legacySupport,
                             packageName,
                             pageName,
                             activityPackageName,
@@ -78,6 +80,7 @@ fun RecipeExecutor.mvpartRecipe(
         else
             save(
                     artActivityKT(
+                            legacySupport,
                             packageName,
                             pageName,
                             activityPackageName,
@@ -93,6 +96,7 @@ fun RecipeExecutor.mvpartRecipe(
         if (ktOrJavaExt == "java")
             save(
                     artFragmentJava(
+                            legacySupport,
                             packageName,
                             pageName,
                             fragmentPackageName,
@@ -105,6 +109,7 @@ fun RecipeExecutor.mvpartRecipe(
         else
             save(
                     artFragmentKT(
+                            legacySupport,
                             packageName,
                             pageName,
                             fragmentPackageName,

@@ -3,6 +3,7 @@ package mvpart.src.app.java
 import com.sinlov.kotlin.utils.DateUtil
 
 fun artFragmentJava(
+        legacySupport: Boolean,
         packageName: String,
         pageName: String,
         fragmentPackageName: String,
@@ -14,10 +15,10 @@ fun artFragmentJava(
 package ${fragmentPackageName};
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import ${if (legacySupport) "android.support.annotation.NonNull" else "androidx.annotation.NonNull"};
+import ${if (legacySupport) "android.support.annotation.Nullable" else "androidx.annotation.Nullable"};
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import ${if (legacySupport) "android.support.v4.app.Fragment" else "androidx.fragment.app.Fragment"};
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class ${pageName}Fragment extends BaseFragment${if (needPresenter) "<${pr
     @Override
     @Nullable
     public ${if (needPresenter) presenterName else "IPresenter"} obtainPresenter() {
-        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this));" else "null;"}
+        return ${if (needPresenter) "new ${presenterName}(ArtUtils.obtainAppComponentFromContext(this.getActivity()));" else "null;"}
     }
 
     /**

@@ -3,6 +3,7 @@ package mvpart.src.app.kotlin
 import com.sinlov.kotlin.utils.DateUtil
 
 fun artActivityKT(
+        legacySupport: Boolean,
         packageName: String,
         pageName: String,
         activityPackageName: String,
